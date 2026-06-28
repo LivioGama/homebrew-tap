@@ -1,0 +1,79 @@
+name: Update Formula
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force update to latest commit'
+        required: false
+        default: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout tap repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Fetch latest commit from agent-handoff
+        id: fetch
+        run: |
+          echo "Fetching latest commit from LivioGama/agent-handoff..."
+          COMMIT=$(git ls-remote https://github.com/LivioGama/agent-handoff.git main | awk '{print $1}')
+          echo "commit=$COMMIT" >> $GITHUB_OUTPUT
+          echo "Latest commit: $COMMIT"
+
+      - name: Update formula with new commit
+        run: |
+          COMMIT="${{ steps.fetch.outputs.commit }}"
+          echo "Updating formula to commit: $COMMIT"
+          
+          # Update the revision in the formula
+          sed -i.bak "s/revision: \"[a-f0-9]*\"/revision: \"$COMMIT\"/" Formula/agent-handoff.rb
+          
+          # Remove backup file
+          rm -f Formula/agent-handoff.rb.bak
+          
+          # Show the updated formula
+          echo "Updated formula:"
+          cat Formula/agent-handoff.rb
+
+      - name: Get version from Cargo.toml
+        id: version
+        run: |
+          # Fetch Cargo.toml from the latest commit
+          curl -sL "https://raw.githubusercontent.com/LivioGama/agent-handoff/${{ steps.fetch.outputs.commit }}/Cargo.toml" > /tmp/Cargo.toml
+          
+          # Extract version
+          VERSION=$(grep "^version = " /tmp/Cargo.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+
+      - name: Update version in formula
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          echo "Updating version to: $VERSION"
+          
+          # Update the version in the formula
+          sed -i.bak "s/version \"[0-9.]*\"/version \"$VERSION\"/" Formula/agent-handoff.rb
+          
+          # Remove backup file
+          rm -f Formula/agent-handoff.rb.bak
+          
+          # Show the updated formula
+          echo "Updated formula:"
+          cat Formula/agent-handoff.rb
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          
+          git add Formula/agent-handoff.rb
+          git diff --staged --quiet || git commit -m "Update agent-handoff to ${{ steps.version.outputs.version }} (commit ${{ steps.fetch.outputs.commit }})"
+          
+          git push

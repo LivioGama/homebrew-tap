@@ -1,18 +1,12 @@
-# LivioGama Tap
+# Homebrew Tap for agent-handoff
 
-## How do I install these formulae?
+## Installation
 
-`brew install liviogama/tap/<formula>`
-
-Or `brew tap liviogama/tap` and then `brew install <formula>`.
-
-Or, in a `brew bundle` `Brewfile`:
-
-```ruby
-tap "liviogama/tap"
-brew "<formula>"
+```bash
+brew tap LivioGama/tap
+brew install agent-handoff
 ```
 
-## Documentation
+## Usage
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+See [agent-handoff](https://github.com/LivioGama/agent-handoff) for usage instructions.
