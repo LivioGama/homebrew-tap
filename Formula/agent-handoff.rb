@@ -3,7 +3,7 @@ class AgentHandoff < Formula
   homepage "https://github.com/LivioGama/agent-handoff"
   url "https://github.com/LivioGama/agent-handoff.git",
     branch: "main",
-    revision: "f01a39221cba70f9cae620202f2d7a4f7d8af88c"
+    revision: "cac3c5050d01930a23695621af261ab218648ab9"
   version "0.1.0"
   license "MIT"
 
