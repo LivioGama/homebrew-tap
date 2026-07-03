@@ -3,8 +3,8 @@ class AgentConfig < Formula
 
   desc "Canonical AI agent configuration and deeplink tooling"
   homepage "https://github.com/LivioGama/agent-config"
-  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "ec28a74bed17f0dec8b5fe001542cd55f62282474de3828aeb724dfd884050da"
+  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "069b38c5588fd01ddc938c4478297a18a9b2522a15fc3379b537f3914c82a632"
   license "MIT"
 
   depends_on "rulesync"
@@ -84,6 +84,7 @@ class AgentConfig < Formula
   test do
     assert_match "Usage: agent-config", shell_output("#{bin}/agent-config --help")
     assert_path_exists libexec/".agent-config/AGENTS.md"
-    assert_path_exists libexec/".agent-config/rules/global-content-workflow.md"
+    refute_path_exists libexec/".agent-config/rules"
+    assert_path_exists libexec/"rules/global-content-workflow.md"
   end
 end
