@@ -3,8 +3,8 @@ class AgentConfig < Formula
 
   desc "Canonical AI agent configuration and deeplink tooling"
   homepage "https://github.com/LivioGama/agent-config"
-  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "0f6966c30c88b3ed9b15815b1e1141288bced3f3498db9b2290ce270b667454e"
+  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "0bc6626051d71f1dc88a594fc2cced5a7368d9bf8863a734c9ed7007c185b50f"
   license "MIT"
 
   depends_on "rulesync"
@@ -19,6 +19,7 @@ class AgentConfig < Formula
     chmod 0755, libexec/"install.sh"
     chmod 0755, libexec/"AgentConfigHandler/build.sh"
     chmod 0755, libexec/"AgentConfigHandler/install-linux.sh"
+    chmod 0755, libexec/"AgentConfigHandler/AgentConfigHandler.icns"
 
     (bin/"agent-config").write <<~BASH
       #!/bin/bash
