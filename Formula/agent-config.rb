@@ -3,8 +3,8 @@ class AgentConfig < Formula
 
   desc "Canonical AI agent configuration and deeplink tooling"
   homepage "https://github.com/LivioGama/agent-config"
-  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "76f6f4f43ab3552110b98c1dce750dd27badf92b365a3c53cf6b2716d1d8fe01"
+  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "9354520aeff4ac6e90e348d3b9ac9b67ef8f23fec113ee32ef710785ae09bb3c"
   license "MIT"
 
   depends_on "rulesync"
@@ -79,6 +79,22 @@ class AgentConfig < Formula
           ;;
       esac
     BASH
+
+    # Standalone commands so rules can reference them by name without
+    # needing to know about the `agent-config` subcommand interface.
+    (bin/"build-agent-config").write <<~BASH
+      #!/bin/bash
+      set -euo pipefail
+      cd "#{libexec}"
+      exec ./build.sh "$@"
+    BASH
+
+    (bin/"sync-agent-skills").write <<~BASH
+      #!/bin/bash
+      set -euo pipefail
+      cd "#{libexec}"
+      exec ./sync-skills.sh "$@"
+    BASH
   end
 
   test do
@@ -86,5 +102,6 @@ class AgentConfig < Formula
     assert_path_exists libexec/".agent-config/AGENTS.md"
     refute_path_exists libexec/".agent-config/rules"
     assert_path_exists libexec/"rules/global-content-workflow.md"
+    assert_match "Regenerated", shell_output("#{bin}/build-agent-config 2>&1", 0).lines.first&.strip || ""
   end
 end
