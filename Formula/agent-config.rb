@@ -3,8 +3,8 @@ class AgentConfig < Formula
 
   desc "Canonical AI agent configuration and deeplink tooling"
   homepage "https://github.com/LivioGama/agent-config"
-  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "9354520aeff4ac6e90e348d3b9ac9b67ef8f23fec113ee32ef710785ae09bb3c"
+  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "f7ec673af004dc15664912e67eec257d55dd29b067996885a01d8c6b0473b72d"
   license "MIT"
 
   depends_on "rulesync"
@@ -15,6 +15,8 @@ class AgentConfig < Formula
 
     chmod 0755, libexec/"build.sh"
     chmod 0755, libexec/"sync-skills.sh"
+    chmod 0755, libexec/"sync-infrastructure.sh"
+    chmod 0755, libexec/"sync-mcp-servers.sh"
     chmod 0755, libexec/"handle-deeplink.sh"
     chmod 0755, libexec/"install.sh"
     chmod 0755, libexec/"AgentConfigHandler/build.sh"
@@ -35,6 +37,16 @@ class AgentConfig < Formula
           shift || true
           cd "#{libexec}"
           exec ./sync-skills.sh "$@"
+          ;;
+        sync-infrastructure)
+          shift || true
+          cd "#{libexec}"
+          exec ./sync-infrastructure.sh "$@"
+          ;;
+        sync-mcp)
+          shift || true
+          cd "#{libexec}"
+          exec ./sync-mcp-servers.sh "$@"
           ;;
         handle)
           shift || true
@@ -67,6 +79,8 @@ class AgentConfig < Formula
       Commands:
         build             Regenerate .agent-config/AGENTS.md and per-tool config files
         sync-skills       Sync canonical skills to local agent tool directories
+        sync-infrastructure  Install shell scripts, hooks, MCP configs
+        sync-mcp          Centralize MCP servers across all AI agent CLIs
         handle <url>      Handle an agent-config:// deeplink
         install-handler   Build/install the local deeplink handler
         path              Print the installed source path
@@ -94,6 +108,20 @@ class AgentConfig < Formula
       set -euo pipefail
       cd "#{libexec}"
       exec ./sync-skills.sh "$@"
+    BASH
+
+    (bin/"sync-agent-infrastructure").write <<~BASH
+      #!/bin/bash
+      set -euo pipefail
+      cd "#{libexec}"
+      exec ./sync-infrastructure.sh "$@"
+    BASH
+
+    (bin/"sync-mcp-servers").write <<~BASH
+      #!/bin/bash
+      set -euo pipefail
+      cd "#{libexec}"
+      exec ./sync-mcp-servers.sh "$@"
     BASH
   end
 
