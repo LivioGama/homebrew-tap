@@ -3,8 +3,8 @@ class AgentConfig < Formula
 
   desc "Canonical AI agent configuration and deeplink tooling"
   homepage "https://github.com/LivioGama/agent-config"
-  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "f7ec673af004dc15664912e67eec257d55dd29b067996885a01d8c6b0473b72d"
+  url "https://github.com/LivioGama/agent-config/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "efb1ed4d575662d32fe3a81ec1643983e872d7b24134fcf3a7b82f13d6da90d7"
   license "MIT"
 
   depends_on "rulesync"
