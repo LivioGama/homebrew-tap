@@ -1,13 +1,12 @@
 class Pixel < Formula
   desc "Local control layer for coding agents — deterministic retrieval + git engine"
   homepage "https://github.com/LivioGama/pixel"
-  version "0.2.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.2.1/pixel-v0.2.1-aarch64-apple-darwin.tar.gz"
-      sha256 "b71cb244b831e4627095bc07a8a249acaaae00a2ceaa0701fe856c6f6a388931"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.2.2/pixel-v0.2.2-aarch64-apple-darwin.tar.gz"
+      sha256 "97a01eaa53dd9c5b93ea9da928fae7eff79e3e15cc592e48e71221cbf4e3cf83"
     end
     # Intel Macs (pre-2020): no prebuilt binary. Build from source via:
     #   cargo build --release -p pixel-cli
@@ -15,12 +14,12 @@ class Pixel < Formula
 
   on_linux do
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.2.1/pixel-v0.2.1-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "d115735759f63a88eccda968789d31bef7f3dcb9aea2d9249a84ba8150d1dbea"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.2.2/pixel-v0.2.2-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "69c648554526eaf13cbb485c11e9bfb2c0f35431e130b48d986a8489179d83a2"
     end
     on_intel do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.2.1/pixel-v0.2.1-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "0d9181cd9c86dbf806b60307dfa22b3c3a34a96e6c1e8eef916289e0203e1a1d"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.2.2/pixel-v0.2.2-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "3745e3c72810997f6a7e7cd2ca9cb86286cf0c3828757f044cc14b19b19ea98a"
     end
   end
 
