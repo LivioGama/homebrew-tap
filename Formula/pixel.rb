@@ -5,8 +5,8 @@ class Pixel < Formula
 
   on_macos do
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.2.2/pixel-v0.2.2-aarch64-apple-darwin.tar.gz"
-      sha256 "97a01eaa53dd9c5b93ea9da928fae7eff79e3e15cc592e48e71221cbf4e3cf83"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.2.3/pixel-v0.2.3-aarch64-apple-darwin.tar.gz"
+      sha256 "dfc1ac3994c29ef65cb940f962ca5ef1b40deecac2ce2d014c18bce4f7e42831"
     end
     # Intel Macs (pre-2020): no prebuilt binary. Build from source via:
     #   cargo build --release -p pixel-cli
@@ -14,12 +14,12 @@ class Pixel < Formula
 
   on_linux do
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.2.2/pixel-v0.2.2-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "69c648554526eaf13cbb485c11e9bfb2c0f35431e130b48d986a8489179d83a2"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.2.3/pixel-v0.2.3-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "3d3cf69cf2684b09ebce3a03c6cda96540a39e6d2af8a39367d748331fd104ce"
     end
     on_intel do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.2.2/pixel-v0.2.2-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "3745e3c72810997f6a7e7cd2ca9cb86286cf0c3828757f044cc14b19b19ea98a"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.2.3/pixel-v0.2.3-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "78b022e6fa143371f488e84db72f2e8a580d9d9f6c3718d494a5171ed06e1bc8"
     end
   end
 
