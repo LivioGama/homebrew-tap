@@ -1,9 +1,19 @@
 class Pixel < Formula
   desc "Local control layer for coding agents — deterministic retrieval + git engine"
   homepage "https://github.com/LivioGama/pixel"
+  # Homebrew validates a URL for every simulated OS/arch at tap time; the
+  # per-target URLs in the `on_*` blocks below are the ones actually used.
+  # This top-level URL satisfies the check — on Intel macOS the matching
+  # `on_arm`-only macOS binary would be wrong, so installs there are refused.
+  url "https://github.com/LivioGama/pixel/releases/download/v0.2.6/pixel-v0.2.6-aarch64-apple-darwin.tar.gz"
+  sha256 "5aa8c256ec53188a968e5775548b4829c3bdb479c3a6c50717b538de4f26786d"
   license "MIT"
 
   on_macos do
+    on_intel do
+      depends_on arch: :arm64
+    end
+
     on_arm do
       url "https://github.com/LivioGama/pixel/releases/download/v0.2.6/pixel-v0.2.6-aarch64-apple-darwin.tar.gz"
       sha256 "5aa8c256ec53188a968e5775548b4829c3bdb479c3a6c50717b538de4f26786d"
