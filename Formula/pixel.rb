@@ -4,8 +4,8 @@ class Pixel < Formula
   # Homebrew validates a URL for every simulated OS/arch at tap
   # time; the per-target URLs in the on_* blocks are the ones
   # actually used. This top-level URL satisfies the check.
-  url "https://github.com/LivioGama/pixel/releases/download/v0.3.0/pixel-v0.3.0-aarch64-apple-darwin.tar.gz"
-  sha256 "0b4d2d50a3cdeb3b3bcd3ddc88f7348253edd7406481c8bbdee755e4c54bd378"
+  url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-aarch64-apple-darwin.tar.gz"
+  sha256 "d48f85031b891b6fd62f0f6f64d05a8201a5e7865c57d73d377bd970f8d1638d"
   license "MIT"
 
   on_macos do
@@ -16,19 +16,19 @@ class Pixel < Formula
     end
 
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.3.0/pixel-v0.3.0-aarch64-apple-darwin.tar.gz"
-      sha256 "0b4d2d50a3cdeb3b3bcd3ddc88f7348253edd7406481c8bbdee755e4c54bd378"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-aarch64-apple-darwin.tar.gz"
+      sha256 "d48f85031b891b6fd62f0f6f64d05a8201a5e7865c57d73d377bd970f8d1638d"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.3.0/pixel-v0.3.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "44bfa78997dbdcdfb8a99f1dcbe5f5a4fdea37fddf68f4b395863e1266346552"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "18e94e66e7fa741b808e0ee302c56eef1bd34d0fd54b7300fbb9c81987be9a12"
     end
     on_intel do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.3.0/pixel-v0.3.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "7035a79f76b221d4b6701946987113eb45f1e8eb2ba68e598646a6f95235bffb"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "0e867e00f3a70716e9f84a39db0a5aabeb0f82db9c0fdd1fa0c72aae514f58a9"
     end
   end
 
