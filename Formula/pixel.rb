@@ -4,8 +4,8 @@ class Pixel < Formula
   # Homebrew validates a URL for every simulated OS/arch at tap
   # time; the per-target URLs in the on_* blocks are the ones
   # actually used. This top-level URL satisfies the check.
-  url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-aarch64-apple-darwin.tar.gz"
-  sha256 "d48f85031b891b6fd62f0f6f64d05a8201a5e7865c57d73d377bd970f8d1638d"
+  url "https://github.com/LivioGama/pixel/releases/download/v0.4.0/pixel-v0.4.0-aarch64-apple-darwin.tar.gz"
+  sha256 "e66b309bd299465db2b6ce6187c734dbd338b5d347d5261bcd258170538e83fb"
   license "MIT"
 
   on_macos do
@@ -16,24 +16,41 @@ class Pixel < Formula
     end
 
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-aarch64-apple-darwin.tar.gz"
-      sha256 "d48f85031b891b6fd62f0f6f64d05a8201a5e7865c57d73d377bd970f8d1638d"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.4.0/pixel-v0.4.0-aarch64-apple-darwin.tar.gz"
+      sha256 "e66b309bd299465db2b6ce6187c734dbd338b5d347d5261bcd258170538e83fb"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "18e94e66e7fa741b808e0ee302c56eef1bd34d0fd54b7300fbb9c81987be9a12"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.4.0/pixel-v0.4.0-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "16335b59f1d22e5ff2959707f4f5ed62dc8858fd733150c82f20f02fb04c4688"
     end
     on_intel do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.3.1/pixel-v0.3.1-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "0e867e00f3a70716e9f84a39db0a5aabeb0f82db9c0fdd1fa0c72aae514f58a9"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.4.0/pixel-v0.4.0-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "846822a7cbc385abcb08b95675fb5d57aa655bea88a9b79dbcfa811940d3fcbe"
     end
   end
 
   def install
     bin.install "bin/pixel"
+  end
+
+  # An upgrade replaces the binary only; the agent wiring it
+  # deployed lives in the user's home and is refreshed by
+  # running pixel install.
+  def caveats
+    <<~EOS
+      Homebrew upgrades replace the binary only. The agent prompt, shell
+      wrapper and per-agent config keys are written by "pixel install"
+      into your home, not by Homebrew, so they keep the old release's
+      text until refreshed:
+
+        pixel install
+        pixel doctor .
+
+      "pixel doctor" reports missing or stale wiring.
+    EOS
   end
 
   test do
