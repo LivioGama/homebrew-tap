@@ -1,11 +1,11 @@
 class Pixel < Formula
   desc "Local control layer for coding agents — deterministic retrieval + git engine"
-  homepage "https://github.com/LivioGama/pixel"
+  homepage "https://pixel-cli.dev/"
   # Homebrew validates a URL for every simulated OS/arch at tap
   # time; the per-target URLs in the on_* blocks are the ones
   # actually used. This top-level URL satisfies the check.
-  url "https://github.com/LivioGama/pixel/releases/download/v0.5.0/pixel-v0.5.0-aarch64-apple-darwin.tar.gz"
-  sha256 "eba3f303ed1252909d7837144b46fcd48d05f743e44dd991c99d11b7e41a83c7"
+  url "https://github.com/LivioGama/pixel/releases/download/v0.5.1/pixel-v0.5.1-aarch64-apple-darwin.tar.gz"
+  sha256 "8668796fc95a6fd8c1d5488666e482da404bac6d687a0761a4baba006d88f33e"
   license "MIT"
 
   on_macos do
@@ -16,19 +16,19 @@ class Pixel < Formula
     end
 
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.5.0/pixel-v0.5.0-aarch64-apple-darwin.tar.gz"
-      sha256 "eba3f303ed1252909d7837144b46fcd48d05f743e44dd991c99d11b7e41a83c7"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.5.1/pixel-v0.5.1-aarch64-apple-darwin.tar.gz"
+      sha256 "8668796fc95a6fd8c1d5488666e482da404bac6d687a0761a4baba006d88f33e"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.5.0/pixel-v0.5.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "5ce854b25f100aca5ed0924d53a6f7c5e35abc33b90c143978c150c28c792495"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.5.1/pixel-v0.5.1-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "e9a8dcf3906971ce14f8485932da73b78c4ae1716182dd43e41076148d88767d"
     end
     on_intel do
-      url "https://github.com/LivioGama/pixel/releases/download/v0.5.0/pixel-v0.5.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "f4837101dfe476a350a4584696c0e44084bdf92c3d202e0aeb25cf205584bf84"
+      url "https://github.com/LivioGama/pixel/releases/download/v0.5.1/pixel-v0.5.1-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "66ce10dca353037c843d69fd9e1e759de701dbb3263c207c5f7c8a460ac8755a"
     end
   end
 
