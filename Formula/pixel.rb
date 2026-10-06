@@ -4,17 +4,17 @@ class Pixel < Formula
   # Homebrew validates a URL for every simulated OS/arch at tap
   # time; the per-target URLs in the on_* blocks are the ones
   # actually used. This top-level URL satisfies the check.
-  url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.0/pixel-v0.7.0-aarch64-apple-darwin.tar.gz"
-  sha256 "8d5728c2999fe6252bee05171c134556b99c9462af88bfc0413d008e1b7e107c"
+  url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.1/pixel-v0.7.1-aarch64-apple-darwin.tar.gz"
+  sha256 "36d2005900d9592b04dce7c8483e3506736e20c227d37700049b4a671aa143c2"
   license "MIT"
 
   # Linux only: the static musl binary laid out as a keg, poured without
   # the C compiler a build from source would require. macOS installs from
   # its archive below.
   bottle do
-    root_url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:  "8c24d3e63cff37eae7910d732cb21d17ecbc713850a17153c3324820a95d68fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "79387504079d136e52e68ed3fe7b07c8b71500c137452efba241634297016238"
+    root_url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "32e8f7dffd554f5fd1e0d5631740111b7a36a6c56f1054aeb5670baa4c70581c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6bc6822a877747159a0a7d6a4737b5dd4f1519bf6de03ea3de607811fa32d823"
   end
 
   on_macos do
@@ -25,19 +25,19 @@ class Pixel < Formula
     end
 
     on_arm do
-      url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.0/pixel-v0.7.0-aarch64-apple-darwin.tar.gz"
-      sha256 "8d5728c2999fe6252bee05171c134556b99c9462af88bfc0413d008e1b7e107c"
+      url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.1/pixel-v0.7.1-aarch64-apple-darwin.tar.gz"
+      sha256 "36d2005900d9592b04dce7c8483e3506736e20c227d37700049b4a671aa143c2"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.0/pixel-v0.7.0-aarch64-unknown-linux-musl.tar.gz"
-      sha256 "a2b949e88ac652497fb3bf891b3c8dbe152ff95777e8900bde7298666cc17e9f"
+      url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.1/pixel-v0.7.1-aarch64-unknown-linux-musl.tar.gz"
+      sha256 "98491fbf36c0bb3890acef496b6b56baf0725df0c800b71b920502dbfe23ce7c"
     end
     on_intel do
-      url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.0/pixel-v0.7.0-x86_64-unknown-linux-musl.tar.gz"
-      sha256 "0251b4fb7ed09944d3ebcd9788b9d262327899d04c1b6f534641ec0710493acb"
+      url "https://github.com/Pixel-CLI/pixel/releases/download/v0.7.1/pixel-v0.7.1-x86_64-unknown-linux-musl.tar.gz"
+      sha256 "a00b9f0d96e8ce8e6155f6999bf60072c64b5404355b79b2a69ec1f5ec63c7a7"
     end
   end
 
